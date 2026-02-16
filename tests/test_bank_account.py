@@ -122,3 +122,5 @@ def test_str_like_output():
     # Assert
     assert "Leo" in s
     assert "30" in s
+
+pytest.main([__file__])
