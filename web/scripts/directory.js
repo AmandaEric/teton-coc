@@ -50,21 +50,14 @@ const displayBusinesses = (members) => {
 }; // end of function expression
 
 async function getBusinessData() {
-  try{
   const response = await fetch(businessDataUrl);
   if (response.ok) {
     const data = await response.json();
     displayBusinesses(data.businesses);
   } else {
-    console.error("There was an error loading the member directory data.");
-    const cards = document.querySelector(".directory-cards");
+    console.error("There was an error loading the data.");
+    const cards = document.querySelector("directory-cards");
     cards.innerHTML = "<section><h1>There was an error loading the data</h1></section>";
-  }
-  }
-  catch (error){
-    console.error("There was an error loading the member directory data.", error);
-    const cards = document.querySelector(".directory-cards");
-    cards.innerHTML = "<section><h1>There was an error loading the data</h1><p>Please come back another time.</p></section>";
   }
 }
 

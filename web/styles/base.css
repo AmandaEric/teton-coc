@@ -86,7 +86,7 @@ hr{
 
 nav ul{
     position: absolute;
-    bottom: -250px;
+    bottom: -180px;
     left: -1px;
     display: none;
     flex-direction: column;    
@@ -218,7 +218,7 @@ nav ul.menu-active{
 .a-button{
     position: absolute;
     top: 50px;
-    right: 50px;
+    left: 50px;
     font-size: 1.5rem;
     padding: .5rem;
     background-color: var(--tan);
@@ -261,6 +261,10 @@ nav ul.menu-active{
 
 .centered-image{
     text-align: center;
+}
+
+.centered-image img{
+    height: 50%;
 }
 
 .main-news img{
@@ -329,7 +333,7 @@ nav ul.menu-active{
 
 .discover-main section{
     border: 2px black solid;
-    margin: 1rem;    
+    margin: 1rem;
 }
 
 .discover-image{
@@ -375,7 +379,7 @@ nav ul.menu-active{
     min-width: 400px;
   }
 
-  label.myinput{
+label.myinput{
     display:block;
     padding-top: 1rem;
   }
@@ -418,6 +422,7 @@ nav ul.menu-active{
 /* Directory Page Stuff */
 .directory-main{
     width: 100%;
+    text-align: center;
 }
 
 #directory-selector{
@@ -463,11 +468,11 @@ nav ul.menu-active{
 }
 
 .directory-main a{    
-    color: lightgrey;
+    color: lightgray;
 }
 
 .directory-main a:visited{    
-    color: lightgrey;
+    color: lightgray;
 }
 
 .directory-list section img{
@@ -531,24 +536,3 @@ nav ul.menu-active{
     font-size: 1.5rem;
 }
 
-/* Admin page */
-
-.login{
-    margin: 0 auto;
-    max-width: 480px;
-    padding: 1rem;
-}
-
-.errorMessage{
-    font-size: 1.5rem;
-    color: maroon;        
-}
-
-.admin-main section form div{
-    text-align: center;
-}
-
-.displaydata{
-    display: none;
-    text-align: center;
-}
