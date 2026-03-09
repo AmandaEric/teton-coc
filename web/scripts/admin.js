@@ -48,5 +48,5 @@ function featureFlag(){
     }
 }
 
-// showhidelogin()
-// featureFlag()
+showhidelogin()
+featureFlag()

@@ -559,7 +559,9 @@ nav ul.menu-active{
     display: none;
     text-align: center;
 }
-/*
+
+/** Feature flags **/
+
 .admin-main{
     display: none;
 }
@@ -569,4 +571,11 @@ nav ul.menu-active{
     color: maroon;        
     text-align: center;   
 }
-*/
+
+.join-original{
+    display: block;
+}
+
+.join-new{
+    display: block;
+}
