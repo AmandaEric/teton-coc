@@ -9,6 +9,7 @@ def create_account(name, opening_balance=0):
     A tuple is just an immutable version of a list.
     """
     # TODO: validate name and opening_balance when appropriate
+
     acct = {
         "name": name,
         # store integer balance
@@ -18,7 +19,9 @@ def create_account(name, opening_balance=0):
     }
     if opening_balance != 0:
         # TODO: apply opening balance and record transaction
-        raise NotImplementedError("TODO: apply opening_balance")
+        opening_transaction = ("opening_balance", opening_balance)
+        acct["transactions"].append(opening_transaction)
+        acct["balance"] = opening_balance
     return acct
 
 def deposit(account, amount):
@@ -27,8 +30,15 @@ def deposit(account, amount):
     - amount must be a positive integer; otherwise raise ValueError.
     - modify account in-place and return True.
     """
+    if not isinstance(amount, int) or amount <= 0:
+           raise ValueError("Amount must be a positive integer")
+    
+    account["balance"] += amount
+    account["transactions"].append(("deposit", amount))
+    return True
+    
+
     # TODO: implement deposit rules
-    raise NotImplementedError("TODO: implement deposit")
 
 def withdraw(account, amount):
     """
@@ -36,8 +46,16 @@ def withdraw(account, amount):
     - amount must be a positive integer and <= balance; otherwise raise ValueError.
     - modify account in-place and return True.
     """
+    if not isinstance(amount, int) or amount <= 0:
+         raise ValueError("Amount must be a positive integer")
+    if amount > account["balance"]:
+           raise ValueError("Insufficient funds")
+    
+    account["balance"] -= amount
+    account["transactions"].append(("withdraw", amount))
+    return True
     # TODO: implement withdraw
-    raise NotImplementedError("TODO: implement withdraw")
+
 
 def transfer(from_account, to_account, amount):
     """
@@ -49,11 +67,26 @@ def transfer(from_account, to_account, amount):
     - on failure: raise ValueError without mutating accounts.
     """
     # TODO: implement transfer safely (validate before mutating)
-    raise NotImplementedError("TODO: implement transfer")
+    if not isinstance(from_account, dict) or not isinstance(to_account, dict):
+        raise ValueError("Invalid account")
+
+    if not isinstance(amount, int) or amount <= 0:
+        raise ValueError("Amount must be positive integer")
+
+    if amount > from_account["balance"]:
+        raise ValueError("Insufficient funds")
+
+    from_account["balance"] -= amount
+    to_account["balance"] += amount
+
+    from_account["transactions"].append(("transfer_out", amount))
+    to_account["transactions"].append(("transfer_in", amount))
+
+    return True
 
 def account_str(account):
     """
     Return a readable single-line summary like "Alice: 100"
     """
     # TODO: create and return the string
-    raise NotImplementedError("TODO: implement account_str")
+    return f'{account["name"]}: {account["balance"]}'
