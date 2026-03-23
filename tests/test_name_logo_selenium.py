@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-BASE_URL = "https://qrbriggs-byui.github.io/teton-coc"
+BASE_URL = "http://127.0.0.1:5500/web"
 
 PAGES = [
     "/index.html",
