@@ -73,7 +73,7 @@ def test_logo_visible(driver, page, resolution):
 
     # Has alt text (accessibility + correctness)
     alt_text = logo.get_attribute("alt")
-    assert alt_text is not None and alt_text != "", "Logo missing alt text"
+    assert alt_text is not None and alt_text != "", "Logo missing alt text" 
 
     # Optional: stronger check (if consistent across pages)
     assert "Teton" in alt_text or "Chamber" in alt_text
